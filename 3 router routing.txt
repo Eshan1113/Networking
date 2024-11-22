@@ -1,0 +1,72 @@
+1
+Router>enable
+Router#
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface GigabitEthernet0/0/0
+Router(config-if)#ip address 192.168.1.3 255.255.255.0
+Router(config-if)#ip address 192.168.1.3 255.255.255.0
+Router(config-if)#no shutdown
+
+Router(config-if)#exit
+Router(config)#interface Serial0/1/0
+Router(config-if)#ip address 192.168.4.2 255.255.255.0
+Router(config-if)#ip address 192.168.4.2 255.255.255.0
+Router(config-if)#no shutdown
+
+2
+Router>enable
+Router#
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface GigabitEthernet0/0/0
+Router(config-if)#ip address 192.168.2.3 255.255.255.0
+Router(config-if)#ip address 192.168.2.3 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#
+
+Router(config-if)#exit
+Router(config)#interface Serial0/1/0
+Router(config-if)#ip address 192.168.4.3 255.255.255.0
+Router(config-if)#ip address 192.168.4.3 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#
+
+Router(config-if)#exit
+Router(config)#interface Serial0/1/1
+Router(config-if)#ip address 192.168.5.2 255.255.255.0
+Router(config-if)#ip address 192.168.5.2 255.255.255.0
+Router(config-if)#no shutdown
+
+3
+Router>enable
+Router#
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface GigabitEthernet0/0/0
+Router(config-if)#ip address 192.168.3.3 255.255.255.0
+Router(config-if)#ip address 192.168.3.3 255.255.255.0
+Router(config-if)#no shutdown
+
+Router>enable
+Router#
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface GigabitEthernet0/0/0
+Router(config-if)#ip address 192.168.3.3 255.255.255.0
+Router(config-if)#ip address 192.168.3.3 255.255.255.0
+Router(config-if)#no shutdown
+
+
+1 router
+Router(config)#ip route 192.168.2.0 255.255.255.0 192.168.4.3
+Router(config)#ip route 192.168.3.0 255.255.255.0 192.168.4.3
+Router(config)#ip route 192.168.5.0 255.255.255.0 192.168.4.3
+3
+Router(config)#ip route 192.168.1.0 255.255.255.0 192.168.5.2
+Router(config)#ip route 192.168.2.0 255.255.255.0 192.168.5.2
+Router(config)#ip route 192.168.4.0 255.255.255.0 192.168.5.2
+
+2
+Router(config)#ip route 192.168.1.0 255.255.255.0 192.168.4.2
+Router(config)#ip route 192.168.3.0 255.255.255.0 192.168.5.3

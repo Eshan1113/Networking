@@ -1,0 +1,72 @@
+en
+conf t
+
+line console 0 - go to console config
+
+no ip domain-lookup - to remove the domain checking error
+enable password - to ceate a pw to enbale level
+enable secret password - hash the password
+
+reload - to reload obviously
+
+write memory - to write everything 
+show run - show running saves in RAM
+show start - show runningsaving saves in HDD
+
+hostname siba - rename a switch
+
+do - cisco sudo mode
+
+show vlan
+vlan 10 - create a vlan
+name HR
+
+creating vlan
+
+interface fa0/4 - choose the mod
+switchport mod ac - go to the mode
+switchport access vlan 11 - assign the device to vlan11
+
+interface range fa0/4-7 - choose the mod by a range
+
+
+creating subinterfaces https://www.ciscopress.com/articles/article.asp?p=3089357&seqNum=5
+
+interface G0/0/1.11 - going to the subinterface named 11
+encapsulation dot1Q 11 - decap the vlan 11
+ip add 192.168.10.1 255.255.255.0 - setting  up the gateway
+exit
+
+
+
+switch trunk port
+
+interface f0/24 - switch port to router
+switchport mode trunk - activate mode trunk
+
+
+
+
+-vtp-
+
+show vtp status
+vtp domain SIBA
+vtp mode server
+vtp mode client
+vtp mode transparent
+
+-spanning tree-
+
+show spanning-tree
+
+
+
+
+
+-Router-
+
+show ip interface brief
+
+interface g0/0/0
+ip address 192.168.1.1 255.255.255.0 - assigning ip to interface
+no shutdown

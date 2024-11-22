@@ -1,0 +1,141 @@
+//------------------set vlan with name---------------------//
+
+Switch#config t
+Switch(config)#vlan 10
+Switch(config-vlan)#name HR
+Switch(config-vlan)#^Z
+
+
+Switch#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 20
+Switch(config-vlan)#name SALES
+Switch(config-vlan)#^Z
+
+
+Switch#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 30
+Switch(config-vlan)#name FINANCE
+Switch(config-vlan)#^Z
+
+
+Switch#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 40
+Switch(config-vlan)#name PURCHASING
+Switch(config-vlan)#^Z
+
+
+Switch#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 50
+Switch(config-vlan)#name IT
+Switch(config-vlan)#^Z
+
+//-----------------ports------------------//
+
+Switch(config)#interface fa0/1
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#^Z
+
+config t
+Switch(config)#interface fa0/2
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#^Z
+
+Switch#config t
+Switch(config)#interface fa0/3
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#^Z
+
+Switch#config t
+Switch(config)#interface fa0/4
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#^Z
+
+Switch#config t
+Switch(config)#interface fa0/5
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 30
+Switch(config-if)#^Z
+
+Switch#config t
+Switch(config)#interface fa0/6
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 30
+Switch(config-if)#^Z
+
+Switch#config t
+Switch(config)#interface fa0/7
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 40
+Switch(config-if)#^Z
+
+Switch#config t
+Switch(config)#interface fa0/8
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 40
+Switch(config-if)#^Z
+
+Switch#config t
+Switch(config)#interface fa0/9
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 50
+Switch(config-if)#^Z
+
+Switch#config t
+Switch(config)#interface fa0/10
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 50
+Switch(config-if)#^Z
+
+//-----------------switch - trunk----------------------//
+Switch(config)#interface fa0/24
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#no shut
+Switch(config-if)#^Z
+
+
+//----------------------router------------------------//
+
+Router(config)#interface gig0/0/1.10
+Router(config-subif)#encapsulation dot1Q 10
+Router(config-subif)#ip add 192.168.100.6 255.255.255.248
+Router(config-subif)#^Z
+
+Router#config t
+Router(config)#interface gig0/0/1.20
+Router(config-subif)#encapsulation dot1Q 20
+Router(config-subif)#ip add 192.168.100.14 255.255.255.248
+Router(config-subif)#^Z
+
+Router#config t
+Router(config)#interface gig0/0/1.30
+Router(config-subif)#encapsulation dot1Q 30
+Router(config-subif)#ip add 192.168.100.22 255.255.255.248
+Router(config-subif)#^Z
+
+Router#config t
+Router(config)#interface gig0/0/1.40
+Router(config-subif)#encapsulation dot1Q 40
+Router(config-subif)#ip add 192.168.100.30 255.255.255.248
+Router(config-subif)#^Z
+
+Router#config t
+Router(config)#interface gig0/0/1.50
+Router(config-subif)#encapsulation dot1Q 50
+Router(config-subif)#ip add 192.168.100.38 255.255.255.248
+Router(config-subif)#^Z
+
+//-------------router - trunk to switch-----------------//
+	
+Router#config t
+Router(config)#interface gig0/0/1
+Router(config-if)#description trunk link to switch
+Router(config-if)#no shut
+
